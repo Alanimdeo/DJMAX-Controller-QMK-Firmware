@@ -7,17 +7,20 @@
 enum custom_keycodes {
     TG_INS = QK_KB_0,
     TG_HOME,
+    SHARED_SPACE,
 };
 
 const uint8_t LED_GPIOS[] = {
     1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 27,
 };
 
+// clang-format off
 const uint8_t LED_MATRIX[][2] = {
     {2, 0}, {2, 1},
     {1, 0}, {1, 1}, {1, 2}, {1, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7},
     {0, 0}, {0, 1},
 };
+// clang-format on
 
 void matrix_init_user(void) {
     setPinOutput(25);
@@ -38,8 +41,9 @@ void matrix_scan_user(void) {
     }
 }
 
-bool insert = false;
-bool home   = false;
+bool    insert = false;
+bool    home   = false;
+uint8_t space  = 0;
 
 void toggle_key(bool *state, uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
@@ -60,10 +64,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TG_HOME:
             toggle_key(&home, KC_HOME, record);
             return false;
+        case SHARED_SPACE:
+            if (record->event.pressed) {
+                space++;
+            } else {
+                space--;
+            }
+            if (space == 0) {
+                unregister_code(KC_SPC);
+            } else {
+                register_code(KC_SPC);
+            }
+            return false;
     }
     return true;
 }
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         LT(1, KC_ESC), KC_ENT,
@@ -76,3 +93,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB, KC_SPC
     )
 };
+// clang-format on
