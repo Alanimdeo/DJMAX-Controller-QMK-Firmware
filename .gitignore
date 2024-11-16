@@ -120,3 +120,7 @@ compile_commands.json
 via*.json
 /keyboards/**/keymaps/via/*
 /keyboards/**/keymaps/vial/*
+
+# Except for DJMAX Controller
+!/keyboards/djmax_controller/keymaps/via/*
+!/keyboards/djmax_controller/via.json

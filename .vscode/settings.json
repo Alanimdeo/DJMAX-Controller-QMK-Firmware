@@ -30,5 +30,8 @@
     },
     "clangd.arguments": [
         "--header-insertion=never"
-    ]
+    ],
+    "git.ignoreLimitWarning": true,
+    "cmake.ignoreCMakeListsMissing": true,
+    "C_Cpp.intelliSenseEngine": "disabled"
 }

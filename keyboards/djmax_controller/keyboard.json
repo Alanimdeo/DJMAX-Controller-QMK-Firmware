@@ -1,0 +1,43 @@
+{
+    "manufacturer": "Alanimdeo",
+    "keyboard_name": "djmax_controller",
+    "maintainer": "Alanimdeo",
+    "bootloader": "rp2040",
+    "bootloader_instructions": "Connect the controller while holding the BOOTSEL button.",
+    "features": {
+        "nkro": true
+    },
+    "matrix_pins": {
+        "direct": [
+            ["GP20", "GP26", null, null, null, null, null, null],
+            ["GP4", "GP6", "GP8", "GP10", "GP12", "GP14", "GP16", "GP18"],
+            ["GP0", "GP2", null, null, null, null, null, null]
+        ]
+    },
+    "processor": "RP2040",
+    "url": "",
+    "usb": {
+        "device_version": "1.0.0",
+        "vid": "0xA1A5",
+        "pid": "0xDC01",
+        "force_nkro": true
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                { "label": "Action", "matrix": [0, 0], "x": 3, "y": 0 },
+                { "label": "Start", "matrix": [0, 1], "x": 4.5, "y": 0 },
+                { "label": "Left Side", "matrix": [1, 0], "x": 0, "y": 1.5, "h": 1.5 },
+                { "label": "Key 1", "matrix": [1, 1], "x": 1, "y": 1.5, "h": 1.5 },
+                { "label": "Key 2", "matrix": [1, 2], "x": 2, "y": 1.5, "h": 1.5 },
+                { "label": "Key 3", "matrix": [1, 3], "x": 3, "y": 1.5, "h": 1.5 },
+                { "label": "Key 4", "matrix": [1, 4], "x": 4.5, "y": 1.5, "h": 1.5 },
+                { "label": "Key 5", "matrix": [1, 5], "x": 5.5, "y": 1.5, "h": 1.5 },
+                { "label": "Key 6", "matrix": [1, 6], "x": 6.5, "y": 1.5, "h": 1.5 },
+                { "label": "Right Side", "matrix": [1, 7], "x": 7.5, "y": 1.5, "h": 1.5 },
+                { "label": "Left Trigger", "matrix": [2, 0], "x": 2, "y": 3.5, "w": 2 },
+                { "label": "Right Trigger", "matrix": [2, 1], "x": 4.5, "y": 3.5, "w": 2 }
+            ]
+        }
+    }
+}
